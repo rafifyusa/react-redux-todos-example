@@ -1,13 +1,13 @@
 import React from "react";
 
 import AddTodo from "./AddTodo.jsx";
-import TodoList from "./TodoList.jsx";
+import VisibleTodoList from "./VisibleTodoList";
 import Footer from "./Footer.jsx";
 
-const TodoApp = ({ match }) => (
+const TodoApp = () => (
   <div>
     <AddTodo />
-    <TodoList filter={match.params.filter || "all"} />
+    <VisibleTodoList />
     <Footer />
   </div>
 );
