@@ -1,46 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
 
-import { setVisibilityFilter } from "../actions";
+import FilterLink from "./FilterLink";
 
-const Link = ({ active, children, onClick }) => {
-  if (active) {
-    return <span>{children}</span>;
-  }
-
-  return (
-    <a
-      href="#"
-      onClick={e => {
-        e.preventDefault();
-        onClick();
-      }}
-    >
-      {children}
-    </a>
-  );
-};
-
-const mapStateProps = (state, ownProps) => ({
-  active: ownProps.filter === state.visibilityFilter
-});
-const mapDispatchProps = (dispatch, ownProps) => ({
-  onClick() {
-    dispatch(setVisibilityFilter(ownProps.filter));
-  }
-});
-
-const FilterLink = connect(
-  mapStateProps,
-  mapDispatchProps
-)(Link);
-
-export default () => (
+const Footer = () => (
   <p>
-    Show: <FilterLink filter="SHOW_ALL">All</FilterLink>
+    Show: <FilterLink filter="all">All</FilterLink>
     {", "}
-    <FilterLink filter="SHOW_ACTIVE">Active</FilterLink>
+    <FilterLink filter="active">Active</FilterLink>
     {", "}
-    <FilterLink filter="SHOW_COMPLETED">Completed</FilterLink>
+    <FilterLink filter="completed">Completed</FilterLink>
   </p>
 );
+
+export default Footer;
