@@ -24,7 +24,7 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 export const fetchTodos = filter =>
   delay(500).then(() => {
-    if (Math.random() > 0.5) {
+    if (Math.random() > 0.9) {
       throw new Error("Boom!");
     }
     console.log("calling fetch api...");
